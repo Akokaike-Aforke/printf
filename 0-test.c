@@ -65,3 +65,18 @@ void get_word_num(char *copy, char *word, unsigned int *j)
 	strcat(copy, word);
 	*j += strlen(word);
 }
+/**
+ * get_word_num - gets words
+ * @copy: stores words
+ * @c: character
+ * Return - a string
+ */
+
+ char *get_other(char *copy, char c)
+{
+    char *new_word = malloc(3);
+    new_word[0] = '%';
+    new_word[1] = c;
+    new_word[2] = '\0';
+    return new_word;
+}
