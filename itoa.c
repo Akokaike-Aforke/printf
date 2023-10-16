@@ -2,8 +2,13 @@
 #include <stdlib.h>
 
 char *itoa(int num, char *str, int base) {
-    int i = 0;
-    int isNegative = 0;
+    int i;
+    int isNegative;
+    int start;
+    int end;
+
+    i = 0;
+    isNegative = 0;
 
     if (base < 2 || base > 36) {
         *str = '\0';
@@ -27,8 +32,8 @@ char *itoa(int num, char *str, int base) {
 
     str[i] = '\0';
 
-    int start = 0;
-    int end = i - 1;
+    start = 0;
+    end = i - 1;
     while (start < end) {
         char temp = str[start];
         str[start] = str[end];
