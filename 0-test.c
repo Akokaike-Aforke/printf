@@ -8,10 +8,9 @@
 
 int _printf(const char *format, ...)
 {
-	int len1, len2, i, j = 0;
+	int len1, i, j = 0;
 	va_list spec;
 	char *copy;
-	const char *newWord;
 
 	va_start(spec, format);
 	len1 = strlen(format);
@@ -31,25 +30,10 @@ int _printf(const char *format, ...)
 				copy[j] = '%';
 				j++;
 			}
-			else if (format[i] == 'c')
-			{
-				copy[j] = va_arg(spec, int);
-				j++;
-			}
-			else if (format[i] == 's')
-			{
-				copy[j] = '\0';
-				newWord = va_arg(spec, char*);
-				len2 = strlen(newWord);
-				copy = realloc(copy, len1 + len2);
-				strcat(copy, newWord);
-				j += strlen(newWord);
-			}
 		}
 	}
 	copy[j] = '\0';
 	va_end(spec);
 	write(1, copy, j);
-	free(copy);
 	return (strlen(copy));
 }
