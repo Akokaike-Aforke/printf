@@ -8,5 +8,6 @@
 int _printf(const char *format, ...);
 void getcharacter(char *copy, char c, unsigned int *j);
 void get_word_num(char *copy, char *word, unsigned int *j);
+char *itoa(int num, char *str, int base);
 
 #endif
