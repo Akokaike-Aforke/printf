@@ -43,3 +43,12 @@ char *itoa(int num, char *str, int base) {
 
     return str;
 }
+
+int main() {
+    int number = -12345;
+    char str[20]; // Ensure a sufficiently large buffer to hold the result
+    itoa(number, str, 10);
+    printf("Number as string: %s\n", str);
+    return 0;
+}
+
