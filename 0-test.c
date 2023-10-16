@@ -29,6 +29,8 @@ int _printf(const char *format, ...)
 				get_word_num(copy, va_arg(spec, char *), &j);
 			else if (format[i] == 'd' || format[i] == 'i')
 				get_word_num(copy, itoa(va_arg(spec, int), digits, 10), &j);
+			else if (format[i] != '%' || format[i] != 'c' || format[i] != 's' || format[i] != 'd' || format[i] != 'i')
+                    get_word_num(copy,  get_other(copy, format[i]), &j);
 		}
 	}
 	copy[j] = '\0';
