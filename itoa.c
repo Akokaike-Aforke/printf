@@ -2,13 +2,13 @@
 #include <stdlib.h>
 
 char *itoa(int num, char *str, int base) {
+    int i = 0;
+    int isNegative = 0;
+
     if (base < 2 || base > 36) {
         *str = '\0';
         return str;
     }
-
-    int i = 0;
-    int isNegative = 0;
 
     // Handle negative numbers for bases other than 10
     if (num < 0 && base == 10) {
@@ -43,12 +43,3 @@ char *itoa(int num, char *str, int base) {
 
     return str;
 }
-
-int main() {
-    int number = -12345;
-    char str[20]; // Ensure a sufficiently large buffer to hold the result
-    itoa(number, str, 10);
-    printf("Number as string: %s\n", str);
-    return 0;
-}
-
