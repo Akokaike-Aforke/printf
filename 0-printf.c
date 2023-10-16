@@ -1,12 +1,12 @@
-#include <string.h>
-#include "main.h"
+/**#include <string.h>
+#include "main.h"*/
 /**
  * _printf - print format strings
  * @format: string to be formatted
  * Return: return int
  */
 
-int _printf(const char *format, ...)
+/*int _printf(const char *format, ...)
 {
 	int len1, len2, i, j = 0;
 	va_list spec;
@@ -52,4 +52,4 @@ int _printf(const char *format, ...)
 	write(1, copy, j);
 	free(copy);
 	return (strlen(copy));
-}
+}*/
