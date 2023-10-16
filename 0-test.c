@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, j = 0;
+	unsigned int i, j = 0;
 	va_list spec;
 	char *copy, *newWord;
 
