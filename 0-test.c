@@ -1,4 +1,3 @@
-#include <string.h>
 #include "main.h"
 /**
  * _printf - print format strings
@@ -29,10 +28,16 @@ int _printf(const char *format, ...)
 				get_word_num(copy, va_arg(spec, char *), &j);
 			else if (format[i] == 'd' || format[i] == 'i')
 				get_word_num(copy, itoa(va_arg(spec, int), digits, 10), &j);
+<<<<<<< HEAD
 			else if(format[i] == 'b')
                     get_word_num(copy, get_bin(va_arg(spec, int)), &j);
 			else if (format[i] != '%' || format[i] != 'c' || format[i] != 's' || format[i] != 'd' || format[i] != 'i')
                     get_word_num(copy,  get_other(copy, format[i]), &j);
+=======
+			else if (format[i] != '%' || format[i] != 'c' ||
+					format[i] != 's' || format[i] != 'd' || format[i] != 'i')
+				get_word_num(copy,  get_other(format[i]), &j);
+>>>>>>> 00ea282e859eb1a1a88fdef700fcb65374e3c93a
 		}
 	}
 	copy[j] = '\0';
@@ -67,19 +72,18 @@ void get_word_num(char *copy, char *word, unsigned int *j)
 	*j += strlen(word);
 }
 /**
- * get_word_num - gets words
- * @copy: stores words
+ * get_other - gets words
  * @c: character
- * Return - a string
+ * Return: a string
  */
-
- char *get_other(char *copy, char c)
+char *get_other(char c)
 {
-    char *new_word = malloc(3);
-    new_word[0] = '%';
-    new_word[1] = c;
-    new_word[2] = '\0';
-    return new_word;
+	char *new_word = malloc(3);
+
+	new_word[0] = '%';
+	new_word[1] = c;
+	new_word[2] = '\0';
+	return (new_word);
 }
 
 /**
