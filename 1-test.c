@@ -11,7 +11,6 @@ int _printf(const char *format, ...)
 	char *copy;
 	char digits[10];
 	char buffer[1024];
-	size_t copy_length;
 
 	va_start(spec, format);
 	copy = (char *)malloc(strlen(format) + 1);
@@ -30,7 +29,7 @@ int _printf(const char *format, ...)
 				get_word_num(copy, va_arg(spec, char *), &j);
 			else if (format[i] == 'd' || format[i] == 'i')
 				get_word_num(copy, itoa(va_arg(spec, int), digits, 10), &j);
-			else if (format[i] == 'b')
+			else if(format[i] == 'b')
 				get_word_num(copy, get_bin(va_arg(spec, int)), &j);
 			else if (format[i] != '%' || format[i] != 'c' ||
 					format[i] != 's' || format[i] != 'd' || format[i] != 'i')
@@ -39,7 +38,7 @@ int _printf(const char *format, ...)
 }
 	copy[j] = '\0';
 	va_end(spec);
-	copy_length = strlen(copy);
+	size_t copy_length = strlen(copy);
 	memcpy(buffer, copy, copy_length);
 	write(1, buffer, copy_length);
 	free(copy);
@@ -95,7 +94,6 @@ char *get_bin(int dec_num)
 	int i;
 	int j;
 	char *num;
-	char *final_num;
 
 	j = 0;
 	num = (char *) malloc(sizeof(char) * j + 1);
@@ -108,5 +106,5 @@ char *get_bin(int dec_num)
 	num[j] = '\0';
 	final_num = (char *) malloc(sizeof(num));
 	final_num = my_strrev(num);
-	return (final_num);
+	return final_num;
 }
