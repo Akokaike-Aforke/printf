@@ -28,16 +28,11 @@ int _printf(const char *format, ...)
 				get_word_num(copy, va_arg(spec, char *), &j);
 			else if (format[i] == 'd' || format[i] == 'i')
 				get_word_num(copy, itoa(va_arg(spec, int), digits, 10), &j);
-<<<<<<< HEAD
-			else if(format[i] == 'b')
-                    get_word_num(copy, get_bin(va_arg(spec, int)), &j);
-			else if (format[i] != '%' || format[i] != 'c' || format[i] != 's' || format[i] != 'd' || format[i] != 'i')
-                    get_word_num(copy,  get_other(copy, format[i]), &j);
-=======
+			else if (format[i] == 'b')
+				get_word_num(copy, get_bin(va_arg(spec, int)), &j);
 			else if (format[i] != '%' || format[i] != 'c' ||
 					format[i] != 's' || format[i] != 'd' || format[i] != 'i')
 				get_word_num(copy,  get_other(format[i]), &j);
->>>>>>> 00ea282e859eb1a1a88fdef700fcb65374e3c93a
 		}
 	}
 	copy[j] = '\0';
@@ -88,24 +83,24 @@ char *get_other(char c)
 
 /**
  * get_bin - converts decimal to binary
- * @dec_num - decimal to be converted
- * Return - a string
+ * @dec_num: decimal to be converted
+ * Return: a string
  */
-
 char *get_bin(int dec_num)
 {
-     int i;
-     int j;
-     j = 0;
-    char * num = (char *) malloc(sizeof(char) * j + 1);
-    for (i = dec_num; i > 0; i/=2)
-    {
-        num[j] = '0' + (i % 2);
-        j++;
-        num = realloc(num, sizeof(char) * j + 1);
-    }
-    num[j] = '\0';
-    strrev(num);
-    return num;
+	int i;
+	int j;
+	char *num;
 
+	j = 0;
+	num = (char *) malloc(sizeof(char) * j + 1);
+	for (i = dec_num; i > 0; i /= 2)
+	{
+		num[j] = '0' + (i % 2);
+		j++;
+		num = realloc(num, sizeof(char) * j + 1);
+	}
+	num[j] = '\0';
+	strrev(num);
+	return (num);
 }
