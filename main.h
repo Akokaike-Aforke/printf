@@ -12,5 +12,6 @@ void get_word_num(char *copy, char *word, unsigned int *j);
 char *itoa(int num, char *str, int base);
 char *get_bin(int dec_num);
 char *get_other(char c);
+char *my_strrev(char *word);
 
 #endif /* MAIN_H */

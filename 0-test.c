@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 					format[i] != 's' || format[i] != 'd' || format[i] != 'i')
 				get_word_num(copy,  get_other(format[i]), &j);
 		}
-	}
+}
 	copy[j] = '\0';
 	va_end(spec);
 	write(1, copy, j);
@@ -101,6 +101,6 @@ char *get_bin(int dec_num)
 		num = realloc(num, sizeof(char) * j + 1);
 	}
 	num[j] = '\0';
-	strrev(num);
+	my_strrev(num);
 	return (num);
 }
