@@ -91,6 +91,7 @@ char *get_bin(int dec_num)
 	int i;
 	int j;
 	char *num;
+	char *final_num;
 
 	j = 0;
 	num = (char *) malloc(sizeof(char) * j + 1);
@@ -101,6 +102,7 @@ char *get_bin(int dec_num)
 		num = realloc(num, sizeof(char) * j + 1);
 	}
 	num[j] = '\0';
-	my_strrev(num);
-	return (num);
+	final_num = (char *) malloc(sizeof(num));
+	final_num = my_strrev(num);
+	return (final_num);
 }
