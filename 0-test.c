@@ -27,14 +27,15 @@ int _printf(const char *format, ...)
 			else if (format[i] == 'c')
 				getcharacter(copy, va_arg(spec, int), &j);
 			else if (format[i] == 's')
-				get_word_num(copy, va_arg(spec, char *), &j);
+				get_w(copy, va_arg(spec, char *), &j);
 			else if (format[i] == 'd' || format[i] == 'i')
-				get_word_num(copy, itoa(va_arg(spec, int), digits, 10), &j);
+				get_w(copy, itoa(va_arg(spec, int), digits, 10), &j);
 			else if (format[i] == 'b')
-				get_word_num(copy, get_bin(va_arg(spec, int)), &j);
-			else if (format[i] != '%' || format[i] != 'c' ||
-					format[i] != 's' || format[i] != 'd' || format[i] != 'i')
-				get_word_num(copy,  get_other(format[i]), &j);
+				get_w(copy, get_bin(va_arg(spec, int)), &j);
+			else if (format[i] == 'x')
+				get_w(copy, hex_l(va_arg(spec, unsigned int)), &j);
+			else if (format[i] == 'X')
+				get_w(copy, hex_u(va_arg(spec, unsigned int)), &j);
 		}
 }
 	copy[j] = '\0';
@@ -57,13 +58,13 @@ void getcharacter(char *copy, char c, unsigned int *j)
 	(*j)++;
 }
 /**
- * get_word_num - gets words
+ * get_w - gets words
  * @copy: stores words
  * @word: word to be copied
  * @j: position of character
  * Return - void
  */
-void get_word_num(char *copy, char *word, unsigned int *j)
+void get_w(char *copy, char *word, unsigned int *j)
 {
 	copy[*j] = '\0';
 	copy = realloc(copy, strlen(word) + *j);

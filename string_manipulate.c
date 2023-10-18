@@ -27,11 +27,11 @@ char *my_strrev(char *word)
 	return (rev);
 }
 /**
- * get_hex - converts dec to hex
- * @dec_num: takes an unsigned int
- * Return: returns a string
+ * hex_u - gets uppercase hex
+ * @dec_num: number to conver
+ * Return: a string
  */
-char *get_hex(unsigned int dec_num)
+char *hex_u(unsigned int dec_num)
 {
 	unsigned int i;
 	int j;
@@ -74,11 +74,11 @@ char *get_hex(unsigned int dec_num)
 	return (final_num);
 }
 /**
- * get_hex2- gets lowercase hex
+ *hex_l -  gets lowercase hex
  * @dec_num: number to conver
  * Return: a string
  */
-char *get_hex2(unsigned int dec_num)
+char *hex_l(unsigned int dec_num)
 {
 	unsigned int i;
 	int j;
@@ -91,7 +91,7 @@ char *get_hex2(unsigned int dec_num)
 		perror("Memory allocation failed");
 		exit(1);
 	}
-	for (i = dec_num; i > 0; i/=16)
+	for (i = dec_num; i > 0; i /= 16)
 	{
 		if (i % 16 == 10)
 			num[j] = 'a';
@@ -111,12 +111,13 @@ char *get_hex2(unsigned int dec_num)
 		num = realloc(num, sizeof(char) * j + 1);
 	}
 	num[j] = '\0';
-	final_num = (char *) malloc(sizeof(num)* j + 1);
-	if(final_num == NULL){
+	final_num = (char *)malloc(sizeof(num) * j + 1);
+	if (final_num == NULL)
+	{
 		perror("Memory allocation failed");
 		exit(1);
 	}
 	final_num = my_strrev(num);
 	free(num);
-	return final_num;
+	return (final_num);
 }
