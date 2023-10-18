@@ -13,5 +13,7 @@ char *itoa(int num, char *str, int base);
 char *get_bin(int dec_num);
 char *get_other(char c);
 char *my_strrev(char *word);
+char *get_hex_lower(unsigned int dec_num);
+char *get_hex_upper(unsigned int dec_num);
 
 #endif /* MAIN_H */

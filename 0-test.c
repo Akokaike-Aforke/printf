@@ -32,6 +32,10 @@ int _printf(const char *format, ...)
 				get_word_num(copy, itoa(va_arg(spec, int), digits, 10), &j);
 			else if (format[i] == 'b')
 				get_word_num(copy, get_bin(va_arg(spec, int)), &j);
+			else if(format[i] == 'x')
+                    get_word_num(copy, get_hex2(va_arg(spec, unsigned int)), &j);
+                    else if(format[i] == 'X')
+			    get_word_num(copy, get_hex(va_arg(spec, unsigned int)), &j);
 			else if (format[i] != '%' || format[i] != 'c' ||
 					format[i] != 's' || format[i] != 'd' || format[i] != 'i')
 				get_word_num(copy,  get_other(format[i]), &j);
