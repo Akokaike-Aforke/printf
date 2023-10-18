@@ -26,49 +26,50 @@ char *my_strrev(char *word)
 	rev[j] = '\0';
 	return (rev);
 }
+/**
+ * get_hex - converts dec to hex
+ * @dec_num: takes an unsigned int
+ * Return: returns a string
+ */
 char *get_hex(unsigned int dec_num)
 {
-    unsigned int i;
-     int j;
-     j = 0;
-    char * num = (char *) malloc(sizeof(char) * j + 1);
-     if(num == NULL)
-    {
-        perror("Memory allocation failed");
-        exit(1);
+	unsigned int i;
+	int j;
+	char *num, *final_num;
 
-    }
-    char *final_num;
-    for (i = dec_num; i > 0; i/=16)
-    {
-        if(i % 16 == 10)
-        num[j] = 'A';
-        else if(i % 16 == 11)
-        num[j] = 'B';
-        else if(i % 16 == 12)
-        num[j] = 'C';
-        else if(i % 16 == 13)
-        num[j] = 'D';
-        else if(i % 16 == 14)
-        num[j] = 'E';
-        else if(i % 16 == 15)
-        num[j] = 'F';
-        else
-        num[j] = '0' + (i % 16);
-        j++;
-        num = realloc(num, sizeof(char) * j + 1);
-    }
-    num[j] = '\0';
-
-    final_num = (char *) malloc(sizeof(num)* j + 1);
-     if(final_num == NULL)
-    {
-        perror("Memory allocation failed");
-        exit(1);
-
-    }
-    final_num = my_strrev(num);
-    free(num);
-    return final_num;
-
+	j = 0;
+	num = (char *) malloc(sizeof(char) * j + 1);
+	if (num == NULL)
+	{
+		perror("Memory allocation failed");
+		exit(1);
+	}
+	for (i = dec_num; i > 0; i /= 16)
+	{
+		if (i % 16 == 10)
+			num[j] = 'A';
+		else if (i % 16 == 11)
+			num[j] = 'B';
+		else if (i % 16 == 12)
+			num[j] = 'C';
+		else if (i % 16 == 13)
+			num[j] = 'D';
+		else if (i % 16 == 14)
+			num[j] = 'E';
+		else if (i % 16 == 15)
+			num[j] = 'F';
+		else
+			num[j] = '0' + (i % 16);
+		j++;
+		num = realloc(num, sizeof(char) * j + 1);
+	}
+	num[j] = '\0';
+	final_num = (char *)malloc(sizeof(num) * j + 1);
+	if (final_num == NULL)
+	{
+		perror("Memory allocation failed");
+	}
+	final_num = my_strrev(num);
+	free(num);
+	return (final_num);
 }
