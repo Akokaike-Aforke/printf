@@ -137,7 +137,7 @@ char *int_str(int dec_num)
 	{
 		final = (char *)malloc(sizeof(char) * 2);
 		positive = fabs(dec_num);
-		final[0] = 'c';
+		final[0] = '-';
 		final[1] = '\0';
 	}
 	else

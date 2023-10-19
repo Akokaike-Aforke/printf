@@ -5,6 +5,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
+#include <math.h>
 
 int _printf(const char *format, ...);
 void getcharacter(char *copy, char c, unsigned int *j);
