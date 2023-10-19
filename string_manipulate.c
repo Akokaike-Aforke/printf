@@ -136,4 +136,44 @@ char *get_hex2(unsigned int dec_num)
     return final_num;
 
 }
-
+/**
+ * int_str - converts integer to string
+ * @dec_num: integer to be converted
+ * Return: returns a string
+ */
+char *int_str(int dec_num)
+{
+    int i, j, positive;
+    char *num, *final_num, *final;
+    
+    j = 0;
+    num = (char *) malloc(sizeof(char) * j + 1);
+    if(dec_num < 0)
+    {
+        final = (char *)malloc(sizeof(char) * 2);
+        positive = fabs(dec_num);
+        final[0] = 'c';
+        final[1] = '\0';
+        }
+        else
+        {
+            final = (char *)malloc(sizeof(char));
+            positive = dec_num;
+            final[0] = '\0';
+        }
+        for (i = positive; i > 0; i /= 10)
+        {
+            num[j] = '0' + (i % 10);
+            j++;
+            num = realloc(num, sizeof(char) * j + 1);
+            }
+        num[j] = '\0';
+        final_num = (char *) malloc(sizeof(num));
+        final_num = my_strrev(num);
+        final_num[strlen(final_num) + 1] = '\0';
+        final = realloc(final, sizeof(final_num) + sizeof(final));
+        final = strcat(final, final_num);
+        free(num);
+        free(final_num);
+        return (final);  
+}

@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 			else if (format[i] == 's')
 				get_word_num(copy, va_arg(spec, char *), &j);
 			else if (format[i] == 'd' || format[i] == 'i')
-				get_word_num(copy, itoa(va_arg(spec, int), digits, 10), &j);
+				get_word_num(copy, int_str(va_arg(spec, int), digits, 10), &j);
 			else if (format[i] == 'b')
 				get_word_num(copy, get_bin(va_arg(spec, int)), &j);
 			else if(format[i] == 'x')
