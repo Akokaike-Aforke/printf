@@ -25,24 +25,13 @@ char *my_strrev(char *word)
 	}
 	rev[j] = '\0';
 	return (rev);
-<<<<<<< HEAD
-};
+}
 /**
- * get_hex- gets uppercase hex
+ * hex_u - gets uppercase hex
  * @dec_num: number to conver
  * Return: a string
  */
-
-
-=======
-}
-/**
- * get_hex - converts dec to hex
- * @dec_num: takes an unsigned int
- * Return: returns a string
- */
->>>>>>> e6d25c948652f567c94bf99aec7b5b18d9b8974f
-char *get_hex(unsigned int dec_num)
+char *hex_u(unsigned int dec_num)
 {
 	unsigned int i;
 	int j;
@@ -85,56 +74,52 @@ char *get_hex(unsigned int dec_num)
 	return (final_num);
 }
 /**
- * get_hex2- gets lowercase hex
+ *hex_l -  gets lowercase hex
  * @dec_num: number to conver
  * Return: a string
  */
-
-char *get_hex2(unsigned int dec_num)
+char *hex_l(unsigned int dec_num)
 {
-    unsigned int i;
-     int j;
-     j = 0;
-    char * num = (char *) malloc(sizeof(char) * j + 1);
-     if(num == NULL)
-    {
-        perror("Memory allocation failed");
-        exit(1);
+	unsigned int i;
+	int j;
+	char *num, *final_num;
 
-    }
-    char *final_num;
-    for (i = dec_num; i > 0; i/=16)
-    {
-        if(i % 16 == 10)
-        num[j] = 'a';
-        else if(i % 16 == 11)
-        num[j] = 'b';
-        else if(i % 16 == 12)
-        num[j] = 'c';
-        else if(i % 16 == 13)
-        num[j] = 'd';
-        else if(i % 16 == 14)
-        num[j] = 'e';
-        else if(i % 16 == 15)
-        num[j] = 'f';
-        else
-        num[j] = '0' + (i % 16);
-        j++;
-        num = realloc(num, sizeof(char) * j + 1);
-    }
-    num[j] = '\0';
-
-    final_num = (char *) malloc(sizeof(num)* j + 1);
-     if(final_num == NULL)
-    {
-        perror("Memory allocation failed");
-        exit(1);
-
-    }
-    final_num = my_strrev(num);
-    free(num);
-    return final_num;
-
+	j = 0;
+	num = (char *) malloc(sizeof(char) * j + 1);
+	if (num == NULL)
+	{
+		perror("Memory allocation failed");
+		exit(1);
+	}
+	for (i = dec_num; i > 0; i /= 16)
+	{
+		if (i % 16 == 10)
+			num[j] = 'a';
+		else if (i % 16 == 11)
+			num[j] = 'b';
+		else if (i % 16 == 12)
+			num[j] = 'c';
+		else if (i % 16 == 13)
+			num[j] = 'd';
+		else if (i % 16 == 14)
+			num[j] = 'e';
+		else if (i % 16 == 15)
+			num[j] = 'f';
+		else
+			num[j] = '0' + (i % 16);
+		j++;
+		num = realloc(num, sizeof(char) * j + 1);
+	}
+	num[j] = '\0';
+	final_num = (char *)malloc(sizeof(num) * j + 1);
+	if (final_num == NULL)
+	{
+		perror("Memory allocation failed");
+		exit(1);
+	}
+	final_num = my_strrev(num);
+	free(num);
+	return (final_num);
 }
 /**
  * int_str - converts integer to string
@@ -143,37 +128,37 @@ char *get_hex2(unsigned int dec_num)
  */
 char *int_str(int dec_num)
 {
-    int i, j, positive;
-    char *num, *final_num, *final;
-    
-    j = 0;
-    num = (char *) malloc(sizeof(char) * j + 1);
-    if(dec_num < 0)
-    {
-        final = (char *)malloc(sizeof(char) * 2);
-        positive = fabs(dec_num);
-        final[0] = 'c';
-        final[1] = '\0';
-        }
-        else
-        {
-            final = (char *)malloc(sizeof(char));
-            positive = dec_num;
-            final[0] = '\0';
-        }
-        for (i = positive; i > 0; i /= 10)
-        {
-            num[j] = '0' + (i % 10);
-            j++;
-            num = realloc(num, sizeof(char) * j + 1);
-            }
-        num[j] = '\0';
-        final_num = (char *) malloc(sizeof(num));
-        final_num = my_strrev(num);
-        final_num[strlen(final_num) + 1] = '\0';
-        final = realloc(final, sizeof(final_num) + sizeof(final));
-        final = strcat(final, final_num);
-        free(num);
-        free(final_num);
-        return (final);  
+	int i, j, positive;
+	char *num, *final_num, *final;
+	
+	j = 0;
+	num = (char *) malloc(sizeof(char) * j + 1);
+	if (dec_num < 0)
+	{
+		final = (char *)malloc(sizeof(char) * 2);
+		positive = fabs(dec_num);
+		final[0] = 'c';
+		final[1] = '\0';
+	}
+	else
+	{
+		final = (char *)malloc(sizeof(char));
+		positive = dec_num;
+		final[0] = '\0';
+	}
+	for (i = positive; i > 0; i /= 10)
+	{
+		num[j] = '0' + (i % 10);
+		j++;
+		num = realloc(num, sizeof(char) * j + 1);
+	}
+	num[j] = '\0';
+	final_num = (char *) malloc(sizeof(num));
+	final_num = my_strrev(num);
+	final_num[strlen(final_num) + 1] = '\0';
+	final = realloc(final, sizeof(final_num) + sizeof(final));
+	final = strcat(final, final_num);
+	free(num);
+	free(final_num);
+	return (final);
 }

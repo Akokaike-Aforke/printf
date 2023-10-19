@@ -8,12 +8,12 @@
 
 int _printf(const char *format, ...);
 void getcharacter(char *copy, char c, unsigned int *j);
-void get_word_num(char *copy, char *word, unsigned int *j);
 char *int_str(int dec_num);
+void get_w(char *copy, char *word, unsigned int *j);
 char *get_bin(int dec_num);
 char *get_other(char c);
 char *my_strrev(char *word);
-char *get_hex_lower(unsigned int dec_num);
-char *get_hex_upper(unsigned int dec_num);
+char *hex_l(unsigned int dec_num);
+char *hex_u(unsigned int dec_num);
 
 #endif /* MAIN_H */
