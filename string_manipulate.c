@@ -130,13 +130,13 @@ char *int_str(int dec_num)
 {
 	int i, j, positive;
 	char *num, *final_num, *final;
-	
+
 	j = 0;
 	num = (char *) malloc(sizeof(char) * j + 1);
 	if (dec_num < 0)
 	{
 		final = (char *)malloc(sizeof(char) * 2);
-		positive = fabs(dec_num);
+		positive = (int)fabs((float)dec_num);
 		final[0] = '-';
 		final[1] = '\0';
 	}

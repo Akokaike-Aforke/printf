@@ -9,7 +9,6 @@ int _printf(const char *format, ...)
 	unsigned int i, j = 0;
 	va_list spec;
 	char *copy;
-	char digits[10];
 	char buffer[1024];
 	size_t copy_length;
 
