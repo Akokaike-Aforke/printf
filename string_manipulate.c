@@ -162,29 +162,3 @@ char *int_str(int dec_num)
 	free(final_num);
 	return (final);
 }
-/**
- * get_oct - gets octal number
- * @dec_num: decimal number to be converted to oct
- *
- * Return: string
- */
-char *get_oct(int dec_num)
-{
-    int i, j;
-    char *num, *final_num;
-
-    j = 0;
-    num = (char *) malloc(sizeof(char) * j + 1);
-    if (dec_num == 0)
-    return (0);
-    for (i = dec_num; i > 0; i /= 8)
-    {
-        num[j] = '0' + (i % 8);
-        j++;
-        num = realloc(num, sizeof(char) * j + 1);
-    }
-        num[j] = '\0';
-        final_num = (char *) malloc(sizeof(num));
-        final_num = my_strrev(num);
-        return final_num;
-}
