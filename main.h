@@ -16,6 +16,6 @@ char *get_other(char c);
 char *my_strrev(char *word);
 char *hex_l(unsigned int dec_num);
 char *hex_u(unsigned int dec_num);
-char *get_oct(int dec_num);
+char *get_oct(unsigned int dec_num);
 
 #endif /* MAIN_H */

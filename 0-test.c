@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 				get_w(copy, hex_l(va_arg(spec, unsigned int)), &j);
 			else if (format[i] == 'X')
 				get_w(copy, hex_u(va_arg(spec, unsigned int)), &j);
-			else if(format[i] == 'o')
+			else if (format[i] == 'o')
 				get_w(copy, get_oct(va_arg(spec, unsigned int)), &j);
 		}
 }
