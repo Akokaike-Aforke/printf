@@ -35,10 +35,10 @@ int _printf(const char *format, ...)
 				get_w(copy, hex_l(va_arg(spec, unsigned int)), &j);
 			else if (format[i] == 'X')
 				get_w(copy, hex_u(va_arg(spec, unsigned int)), &j);
-			else if (format[i] == 'o')
-				get_w(copy, get_oct(va_arg(spec, unsigned int)), &j);
+			else if (format[i] == 'r')
+				get_w(copy, my_strrev(va_arg(spec, char*)), &j);
 		}
-}
+	}
 	copy[j] = '\0';
 	va_end(spec);
 	copy_length = strlen(copy);
